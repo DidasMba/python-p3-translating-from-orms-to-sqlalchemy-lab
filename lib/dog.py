@@ -1,22 +1,17 @@
+#from models import Dog
+
+
 from models import Dog
 
-def create_table(base):
-    pass
 
-def save(session, dog):
-    pass
+def create_table():
+    Dog.metadata.create_all(session.bind)
 
-def get_all(session):
-    pass
+def save(obj):
+    session.add(obj)
+    session.commit()
 
-def find_by_name(session, name):
-    pass
+def get_dogs():
+    return session.query(Dog).all()
 
-def find_by_id(session, id):
-    pass
-
-def find_by_name_and_breed(session, name, breed):
-    pass
-
-def update_breed(session, dog, breed):
-    pass
+# Implement other functions in a similar way
